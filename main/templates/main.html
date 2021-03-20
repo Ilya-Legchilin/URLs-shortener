@@ -6,6 +6,8 @@
 <form action='' method="post">
 	{% csrf_token %} 
 	<input type='text' name='new_url' placeholder='Введите URL' class='form-control' style="width: 600px; height: 40px; margin-left: 300px; margin-top: 100px; box-sizing: border-box;"/></input>
+	<input type='text' name='subpart' placeholder='По желанию можете ввести subpart' class='form-control' style="width: 600px; height: 40px; margin-left: 300px; margin-top: 10px; box-sizing: border-box;"/></input>
+	<input type="submit" text='Сократить' style="margin-left: 550px; margin-top: 10px; box-sizing: border-box;"/>
 </form>
 <table border="1" style="margin-left: 350px; margin-top: 20px"/>
 	{% for short, long in page_object %}

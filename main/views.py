@@ -1,19 +1,42 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 from hashids import Hashids
+from .models import Couple
+
+
+def shorten(url):
+    hashids = Hashids(url)
+    short = hashids.encode(1, 2, 3)
+    return short
+
 
 def index(request):
-    print("current request -----------", request)
     new_url = request.POST.get('new_url', 0)
+    subpart = request.POST.get('subpart', 0)
     if 'urls_list' not in request.session:
         request.session['urls_list'] = []
     if new_url != 0:
-        h = Hashids(new_url)
-        token = h.encode(1, 2, 3)
-        request.session['urls_list'].append([new_url, token])
-        request.session.modified = True
-    print(request.session['urls_list'])
+        couple = Couple()
+        couple.long_url = new_url
+        couple.session_key = request.session._session_key
+        already_used = False
+        all_couples = Couple.objects.all()
+        if subpart == '':
+            couple.short_url = shorten(new_url)
+        else:
+            for c in all_couples:
+                if c.short_url == subpart:
+                    return HttpResponse('Такой subpart уже используется')
+            couple.short_url = subpart
+        for c in all_couples:
+            if c.long_url == new_url:
+                already_used = True
+        if not already_used:
+            couple.save()
+            request.session['urls_list'].append([couple.long_url, couple.short_url])
+            request.session.modified = True
+        
     paginator = Paginator(request.session['urls_list'], 6)
     
     page_number = request.GET.get('page', 1)
@@ -39,3 +62,18 @@ def index(request):
     }
                     
     return render(request, 'main.html', context=context)
+    
+ 
+def redir(request, slug):
+    try:
+        url = Couple.objects.get(short_url=slug)
+    except Couple.DoesNotExist:
+        return HttpResponse('Нет такой ссылки!')
+    else:
+        return redirect(url.long_url)
+        
+    
+    
+    
+    
+    
