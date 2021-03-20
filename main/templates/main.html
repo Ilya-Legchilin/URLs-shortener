@@ -3,7 +3,10 @@
 {% block title %}Сократить URL{% endblock %}
 
 {% block content %}
-<input type='text' placeholder='Введите URL' class='form-control' style="width: 600px; height: 40px; margin-left: 300px; margin-top: 100px; box-sizing: border-box;"/></input>
+<form action='' method="post">
+	{% csrf_token %} 
+	<input type='text' name='new_url' placeholder='Введите URL' class='form-control' style="width: 600px; height: 40px; margin-left: 300px; margin-top: 100px; box-sizing: border-box;"/></input>
+</form>
 <table border="1" style="margin-left: 350px; margin-top: 20px"/>
 	{% for short, long in page_object %}
 	<tr class='success'>
@@ -21,7 +24,7 @@
 		
 		{% for n in page_object.paginator.page_range %}
 			{% if page_object.number == n %}
-				<li class="page-item">
+				<li class="page-item active">
 					<a class="page-link" href="?page={{ n }}">{{ n }}<span
 					class="sr-only">(current)</span></a>
 				</li>

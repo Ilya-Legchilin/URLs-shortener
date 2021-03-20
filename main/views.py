@@ -1,59 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator
-
+from hashids import Hashids
 
 def index(request):
-    session_list = [['my1/first.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/second.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/third.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/fourth.com', 'https://music.yandex.ru/home'],
-                    ['my1/fifth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/sixth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/seventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/eighth.com', 'https://music.yandex.ru/home'],
-                    ['my1/ninth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/tenth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/eleventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/twelvth.com', 'https://music.yandex.ru/home'],
-                    ['my1/first.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/second.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/third.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/fourth.com', 'https://music.yandex.ru/home'],
-                    ['my1/fifth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/sixth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/seventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/eighth.com', 'https://music.yandex.ru/home'],
-                    ['my1/ninth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/tenth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/eleventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/twelvth.com', 'https://music.yandex.ru/home'],
-                    ['my1/first.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/second.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/third.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/fourth.com', 'https://music.yandex.ru/home'],
-                    ['my1/fifth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/sixth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/seventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/eighth.com', 'https://music.yandex.ru/home'],
-                    ['my1/ninth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/tenth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/eleventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/twelvth.com', 'https://music.yandex.ru/home'],
-                    ['my1/first.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/second.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/third.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/fourth.com', 'https://music.yandex.ru/home'],
-                    ['my1/fifth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/sixth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/seventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/eighth.com', 'https://music.yandex.ru/home'],
-                    ['my1/ninth.com', 'https://developer.mozilla.org/ru/docs'],
-                    ['my1/tenth.com', 'https://github.com/Ilya-Legchilin/URLs-shortener'],
-                    ['my1/eleventh.com', 'http://htmlbook.ru/html/table'],
-                    ['my1/twelvth.com', 'https://music.yandex.ru/home'],
-                    ]
-    paginator = Paginator(session_list, 6)
+    print("current request -----------", request)
+    new_url = request.POST.get('new_url', 0)
+    if 'urls_list' not in request.session:
+        request.session['urls_list'] = []
+    if new_url != 0:
+        h = Hashids(new_url)
+        token = h.encode(1, 2, 3)
+        request.session['urls_list'].append([new_url, token])
+        request.session.modified = True
+    print(request.session['urls_list'])
+    paginator = Paginator(request.session['urls_list'], 6)
     
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
