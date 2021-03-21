@@ -65,7 +65,7 @@ def index(request):
                     
     return render(request, 'main.html', context=context)
     
- 
+
 def redir(request, slug):
     if cache.get(slug):
         print("DATA FROM CACHE")
@@ -73,15 +73,9 @@ def redir(request, slug):
     else:
         try:
             url = Couple.objects.get(short_url=slug)
-            cache.set(slug, url.long_url)
+            cache.set(slug, url.long_url, timeout=10)
         except Couple.DoesNotExist:
             return HttpResponse('Нет такой ссылки!')
         else:
             print("DATA FROM MYSQL")
             return redirect(url.long_url)
-        
-    
-    
-    
-    
-    
