@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from hashids import Hashids
 from .models import Couple
+import redis
+from django.core.cache import cache
 
 
 def shorten(url):
@@ -65,12 +67,18 @@ def index(request):
     
  
 def redir(request, slug):
-    try:
-        url = Couple.objects.get(short_url=slug)
-    except Couple.DoesNotExist:
-        return HttpResponse('Нет такой ссылки!')
+    if cache.get(slug):
+        print("DATA FROM CACHE")
+        return redirect(cache.get(slug))
     else:
-        return redirect(url.long_url)
+        try:
+            url = Couple.objects.get(short_url=slug)
+            cache.set(slug, url.long_url)
+        except Couple.DoesNotExist:
+            return HttpResponse('Нет такой ссылки!')
+        else:
+            print("DATA FROM MYSQL")
+            return redirect(url.long_url)
         
     
     
