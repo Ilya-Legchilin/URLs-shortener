@@ -14,3 +14,19 @@
 2021-03-22 10:10:35,621 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
 2021-03-22 10:10:35,624 asyncio      DEBUG    Using proactor: IocpProactor
 2021-03-22 10:10:37,049 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:24:17,875 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:42:52,509 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:42:53,334 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:44:08,234 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\models.py changed, reloading.
+2021-03-22 10:44:32,707 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:45:08,146 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\models.py changed, reloading.
+2021-03-22 10:45:09,595 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:45:21,391 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:45:21,396 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:45:22,709 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:45:28,211 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:45:28,214 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:45:29,535 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:45:34,015 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:45:34,023 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:45:35,247 django.utils.autoreload INFO     Watching for file changes with StatReloader

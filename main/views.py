@@ -11,24 +11,25 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def shorten(url):
-'''
+"""
 function that makes long url short usind hashids library
-'''
+"""
+def shorten(url):
     hashids = Hashids(url)
     short = hashids.encode(1, 2, 3)
     return short
 
 
-def index(request):
-'''
+
+"""
 get url via post request. If url not given that means that 
 session map is empty. We initialize list of urls.
 If url is given we make an object Couple and check whether
 such url is already stored. If not then we store it with subpart.
 If such a subpart is already used we return and get http response.
 Else we save couple in mysql and in session.
-'''
+"""
+def index(request):
     new_url = request.POST.get('new_url', 0)
     subpart = request.POST.get('subpart', 0)
     if 'urls_list' not in request.session:
@@ -85,13 +86,15 @@ Else we save couple in mysql and in session.
     return render(request, 'main.html', context=context)
     
 
-def redir(request, slug):
-'''
+
+"""
 slug is a short url. If slug is in cache, take it out
 and go to the long url.
 Else check if it is in database. If not, we get http response
-Else go to long_url
-'''
+Else go to long_url.
+Data in cache is holding 1 hour
+"""
+def redir(request, slug):
     if cache.get(slug):
         print("DATA FROM CACHE")
         msg = 'redirect from ' + slug + ' to ' + cache.get(slug) + ' from cache'
