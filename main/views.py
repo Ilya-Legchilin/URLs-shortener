@@ -5,6 +5,10 @@ from hashids import Hashids
 from .models import Couple
 import redis
 from django.core.cache import cache
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def shorten(url):
@@ -29,12 +33,16 @@ def index(request):
         else:
             for c in all_couples:
                 if c.short_url == subpart:
+                    msg = 'subpart ' + subpart + ' is already used'
+                    logger.debug(msg)
                     return HttpResponse('Такой subpart уже используется')
             couple.short_url = subpart
         for c in all_couples:
             if c.long_url == new_url:
                 already_used = True
         if not already_used:
+            msg = 'new url for ' + couple.long_url + ' is ' + couple.short_url
+            logger.debug(msg)
             couple.save()
             request.session['urls_list'].append([couple.long_url, couple.short_url])
             request.session.modified = True
@@ -69,13 +77,19 @@ def index(request):
 def redir(request, slug):
     if cache.get(slug):
         print("DATA FROM CACHE")
+        msg = 'redirect from ' + slug + ' to ' + cache.get(slug) + ' from cache'
+        logger.debug(msg)
         return redirect(cache.get(slug))
     else:
         try:
             url = Couple.objects.get(short_url=slug)
-            cache.set(slug, url.long_url, timeout=10)
+            cache.set(slug, url.long_url, timeout=3600)
         except Couple.DoesNotExist:
+            msg = 'url for ' + slug + ' does not exist'
+            logger.debug(msg)
             return HttpResponse('Нет такой ссылки!')
         else:
             print("DATA FROM MYSQL")
+            msg = 'redirect from ' + slug + ' to ' + url.long_url + ' from MySQL'
+            logger.debug(msg)
             return redirect(url.long_url)

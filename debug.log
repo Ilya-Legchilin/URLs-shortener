@@ -1,0 +1,16 @@
+2021-03-22 10:01:34,666 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:01:52,342 main.views   DEBUG    hello
+2021-03-22 10:02:21,478 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:08:21,907 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:08:54,451 main.views   DEBUG    new url forhttps://webdevblog.ru/loggirovanie-v-django-nachalnyj-obzor/is1dhlHz
+2021-03-22 10:09:33,783 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:09:33,799 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:09:35,248 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:09:41,069 main.views   DEBUG    new url for https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s is PPH4I6
+2021-03-22 10:10:04,792 main.views   DEBUG    redirect from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-22 10:10:32,932 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:10:32,934 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:10:34,188 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-22 10:10:35,621 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-22 10:10:35,624 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-22 10:10:37,049 django.utils.autoreload INFO     Watching for file changes with StatReloader
