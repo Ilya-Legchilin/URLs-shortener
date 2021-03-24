@@ -32,3 +32,235 @@
 2021-03-22 10:45:35,247 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-03-22 10:46:46,364 main.views   DEBUG    new url for https://github.com/Ilya-Legchilin/URLs-shortener is 6XhgHV
 2021-03-22 10:46:52,258 main.views   DEBUG    redirect from 6XhgHV to https://github.com/Ilya-Legchilin/URLs-shortener from MySQL
+2021-03-24 23:10:40,459 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:10:53,211 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\django\url_shortener\shortener\main\views.py", line 21, in index
+    handle_new_url_and_subpart(request, new_url, subpart)
+NameError: name 'handle_new_url_and_subpart' is not defined
+2021-03-24 23:10:53,882 django.request WARNING  Not Found: /favicon.ico
+2021-03-24 23:11:09,401 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:11:09,404 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:11:10,934 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:11:24,867 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:11:24,870 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:11:26,349 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:11:31,693 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:11:31,696 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:11:33,035 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:11:36,545 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:11:36,549 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:11:38,048 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:12:05,679 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:12:06,751 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:12:08,236 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:12:12,531 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\django\url_shortener\shortener\main\views.py", line 22, in index
+    handle_new_url_and_subpart(request, new_url, subpart)
+NameError: name 'handle_new_url_and_subpart' is not defined
+2021-03-24 23:12:53,031 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:12:55,204 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:12:56,580 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:13:11,045 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\MySQLdb\connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'url_data.main_mapping' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\django\url_shortener\shortener\main\views.py", line 22, in index
+    handle_new_url_and_subpart(request, new_url, subpart)
+  File "C:\django\url_shortener\shortener\main\services.py", line 62, in handle_new_url_and_subpart
+    if this_url_is_already_stored(new_url, all_mappings):
+  File "C:\django\url_shortener\shortener\main\services.py", line 110, in this_url_is_already_stored
+    for elem in all_mappings:
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 287, in __iter__
+    self._fetch_all()
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\MySQLdb\connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'url_data.main_mapping' doesn't exist")
+2021-03-24 23:13:31,485 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:13:31,616 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:13:44,983 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:13:54,245 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:14:07,733 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:14:11,254 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\django\url_shortener\shortener\main\views.py", line 22, in index
+    handle_new_url_and_subpart(request, new_url, subpart)
+  File "C:\django\url_shortener\shortener\main\services.py", line 69, in handle_new_url_and_subpart
+    mapping.short_url = shorten(new_url)
+NameError: name 'shorten' is not defined
+2021-03-24 23:14:37,990 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:14:37,993 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:14:39,471 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:14:43,223 main.services DEBUG    new url for https://www.youtube.com/watch?v=5qap5aO4i9A is 7oHvIG
+2021-03-24 23:14:43,282 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\django\url_shortener\shortener\main\views.py", line 22, in index
+    handle_new_url_and_subpart(request, new_url, subpart)
+  File "C:\django\url_shortener\shortener\main\services.py", line 75, in handle_new_url_and_subpart
+    store_new_mapping(mapping)
+  File "C:\django\url_shortener\shortener\main\services.py", line 88, in store_new_mapping
+    request.session['urls_list'].append([mapping.long_url, mapping.short_url])
+NameError: name 'request' is not defined
+2021-03-24 23:15:16,896 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:15:16,899 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:15:18,375 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:15:52,886 main.services DEBUG    redirected from kZHwI6 to https://www.youtube.com/watch?v=Xf-cETqR6ds from MySQL
+2021-03-24 23:15:53,068 django.request ERROR    Internal Server Error: /kZHwI6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:16:48,532 main.services DEBUG    redirected from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-24 23:16:48,651 django.request ERROR    Internal Server Error: /PPH4I6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:18:09,529 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:18:09,536 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:18:11,291 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:18:12,484 main.services DEBUG    redirect from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from cache
+2021-03-24 23:18:12,501 main.services DEBUG    redirected from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-24 23:18:12,550 django.request ERROR    Internal Server Error: /PPH4I6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:20:11,890 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:20:12,022 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:20:17,451 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:20:22,779 main.services DEBUG    redirect from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from cache
+2021-03-24 23:20:22,806 main.services DEBUG    redirected from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-24 23:20:22,868 django.request ERROR    Internal Server Error: /PPH4I6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:21:44,458 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:21:44,465 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:21:46,029 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:22:35,798 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:22:35,801 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:22:37,272 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:25:46,404 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:25:46,407 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:25:47,909 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:25:59,807 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\services.py changed, reloading.
+2021-03-24 23:25:59,814 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:26:01,656 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:28:34,510 main.services DEBUG    redirect from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from cache
+2021-03-24 23:28:34,520 main.services DEBUG    redirected from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-24 23:28:34,592 django.request ERROR    Internal Server Error: /PPH4I6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:30:45,924 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:30:47,380 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:30:48,800 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:30:53,894 main.services DEBUG    redirect from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from cache
+2021-03-24 23:30:53,901 main.services DEBUG    redirected from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-24 23:30:53,958 django.request ERROR    Internal Server Error: /PPH4I6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:38:17,188 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:38:17,331 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:38:21,281 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-03-24 23:38:26,264 main.services DEBUG    redirect from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from cache
+2021-03-24 23:38:26,270 main.services DEBUG    redirected from PPH4I6 to https://www.youtube.com/watch?v=nAK-Tpc3NMI&t=1044s from MySQL
+2021-03-24 23:38:26,326 django.request ERROR    Internal Server Error: /PPH4I6
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 309, in check_response
+    raise ValueError(
+ValueError: The view main.views.redirect_to_website didn't return an HttpResponse object. It returned None instead.
+2021-03-24 23:39:30,563 django.utils.autoreload INFO     C:\django\url_shortener\shortener\main\views.py changed, reloading.
+2021-03-24 23:39:30,567 asyncio      DEBUG    Using proactor: IocpProactor
+2021-03-24 23:39:32,236 django.utils.autoreload INFO     Watching for file changes with StatReloader

@@ -3,7 +3,7 @@ from django.db import models
 from hashids import Hashids
 
 
-class Couple(models.Model):
+class Mapping(models.Model):
     """
 
     long_url is a normal url to be shorten. 
