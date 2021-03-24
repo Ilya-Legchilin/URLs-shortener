@@ -45,11 +45,8 @@ LOGGING = {
             'handlers': ['console', 'file']
         }
     }
-}     
+}
         
-    
-    
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -113,14 +110,11 @@ WSGI_APPLICATION = 'shortener.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'url_data',
         'USER': 'root',
         'PASSWORD': '123',
         'HOST': 'localhost',
-        
     }
 }
 
@@ -179,4 +173,3 @@ CELERY_BROKER_URL = 'redis://localhost:6379'
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
-
